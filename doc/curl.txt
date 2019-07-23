@@ -1,5 +1,5 @@
-curl -X POST "https://spotifyservice.herokuapp.com/api/v1/token" -H "Content-type: application/json" -d "{\"clientId\":\"d1a906b1affc4b2d9bdc90816cb62e6e\",\"clientSecret\":\"65dcfded90be471a94655bd08347e312\"}" -v --proxy proxy.jus.gov.ar:8080
-curl -X "https://spotifyservice.herokuapp.com/api/v1/version" 
+curl -X POST "spotify-service-ui.herokuapp.com/api/v1/token" -H "Content-type: application/json" -d "{\"clientId\":\"d1a906b1affc4b2d9bdc90816cb62e6e\",\"clientSecret\":\"65dcfded90be471a94655bd08347e312\"}" -v --proxy proxy.jus.gov.ar:8080
+curl -X "spotify-service-ui.herokuapp.com/api/v1/version" 
 curl -X POST "http://localhost:8080/api/v1/token" -H "Content-type: application/json" -d "{\"clientId\":\"d1a906b1affc4b2d9bdc90816cb62e6e\",\"clientSecret\":\"65dcfded90be471a94655bd08347e312\"}" -v 
 curl -X GET "http://localhost:8080/api/v1/proxy?urlRequest=YnJvd3NlL25ldy1yZWxlYXNlcz9saW1pdD01MA==" -H "Content-type: application/json" -v
 curl -X  GET  "https://api.spotify.com/v1/browse/new-releases?limit=50" -H "Content-type: application/json" -H "Authorization: Bearer BQDqCNW1DgP_YoJhNRApIgR93gkAIJDRUMs1vy4vhp8pfKlP-CrfM_T0arpBrL-Tg-ZNAzZCojnyzku_PeE" -H "Accept: application/json" -v --proxy "proxy.jus.gov.ar:8080"
@@ -8,3 +8,4 @@ curl -X "GET" "https://api.spotify.com/v1/browse/categories" -H "Accept: applica
 curl -X "GET" "https://api.spotify.com/v1/browse/categoriesbrowse/new-releases?limit=50" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQAMG5d3ol8cZkFEQzLBuQMFRsTzvgS3-g_HzZW-ZTsrxVZ81zvT8K3mffgncwihThGBiZ9jo2_LxFBJrUo" -v --proxy "proxy.jus.gov.ar:8080"
 
 
+curl -X GET "https://spotify-service-ui.herokuapp.com/api/v1/proxy?urlRequest=YXJ0aXN0cy83QW40eXZGN2hEWURvbE40bTV6S0Jw"
