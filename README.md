@@ -3,6 +3,10 @@
 This is a proxy service, it consumes the services configured in the application, avoiding the CORS error in the user interface that consumes the services of sites other than those of its host.
 It works as a service pipeline between the user interface and backend services
 
+Depploy in Heroku https://spotify-service-ui.herokuapp.com
+
+Link Frontend https://github.com/mfernandez4060/spotify-app
+
 ## Index
 
 + **GET /api/v1/version**
