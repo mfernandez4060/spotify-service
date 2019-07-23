@@ -1,0 +1,7 @@
+/target/
+/logs/
+/.settings/
+.project
+.classpath
+/src/main/AngularApplication/node_modules
+/.metadata/

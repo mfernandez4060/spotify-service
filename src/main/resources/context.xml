@@ -1,0 +1,1 @@
+<bean id="restTemplateBean" class="spotify.service.ApplicationUp"/>
