@@ -17,6 +17,8 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.server.ResponseStatusException;
 
 import spotify.service.dto.TokenResponse;
+import spotify.service.exceptions.BadClientIdException;
+import spotify.service.exceptions.BadClientSecretException;
 import spotify.service.util.ClientHttpRestApi;
 import spotify.service.util.Commons;
 
@@ -85,10 +87,10 @@ public class AuthorizationServiceImplTest {
 		Mockito.when(common.checkValidClientId(null)).thenReturn(false);
 		Mockito.when(common.checkValidClientSecret(INVALID_CLIENT_SECRET)).thenReturn(false);
 
-		Exception thrown = assertThrows(ResponseStatusException.class,
+		Exception thrown = assertThrows(BadClientIdException.class,
 				() -> sut.getAuthorizationBasic(INVALID_CLIENT_ID, INVALID_CLIENT_SECRET));
 
-		assertEquals(thrown.getClass(), ResponseStatusException.class);
+		assertEquals(thrown.getClass(), BadClientIdException.class);
 	}
 
 	@Test
@@ -96,10 +98,10 @@ public class AuthorizationServiceImplTest {
 		Mockito.when(common.checkValidClientId(INVALID_CLIENT_ID)).thenReturn(false);
 		Mockito.when(common.checkValidClientSecret(INVALID_CLIENT_SECRET)).thenReturn(false);
 
-		Exception thrown = assertThrows(ResponseStatusException.class,
+		Exception thrown = assertThrows(BadClientIdException.class,
 				() -> sut.getAuthorizationBasic(INVALID_CLIENT_ID, INVALID_CLIENT_SECRET));
 
-		assertEquals(thrown.getClass(), ResponseStatusException.class);
+		assertEquals(thrown.getClass(), BadClientIdException.class);
 	}
 
 	@Test
@@ -107,10 +109,10 @@ public class AuthorizationServiceImplTest {
 		Mockito.when(common.checkValidClientId(VALID_CLIENT_ID)).thenReturn(true);
 		Mockito.when(common.checkValidClientSecret(INVALID_CLIENT_SECRET)).thenReturn(false);
 
-		Exception thrown = assertThrows(ResponseStatusException.class,
+		Exception thrown = assertThrows(BadClientSecretException.class,
 				() -> sut.getAuthorizationBasic(VALID_CLIENT_ID, INVALID_CLIENT_SECRET));
 
-		assertEquals(thrown.getClass(), ResponseStatusException.class);
+		assertEquals(thrown.getClass(), BadClientSecretException.class);
 	}
 
 	@Test
@@ -118,10 +120,10 @@ public class AuthorizationServiceImplTest {
 		Mockito.when(common.checkValidClientId(INVALID_CLIENT_ID)).thenReturn(false);
 		Mockito.when(common.checkValidClientSecret(VALID_CLIENT_SECRET)).thenReturn(true);
 
-		Exception thrown = assertThrows(ResponseStatusException.class,
+		Exception thrown = assertThrows(BadClientIdException.class,
 				() -> sut.getAuthorizationBasic(INVALID_CLIENT_ID, VALID_CLIENT_SECRET));
 
-		assertEquals(thrown.getClass(), ResponseStatusException.class);
+		assertEquals(thrown.getClass(), BadClientIdException.class);
 	}
 
 	@Test
